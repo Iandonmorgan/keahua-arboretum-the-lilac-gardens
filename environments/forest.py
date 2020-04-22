@@ -22,10 +22,13 @@ class Forest(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_plant(self, plant):
         try:
-            if self.max_plants > len(self.plants):
-                self.plants.append(plant)
+            for location in plant.hospitable_locations:
+                if location == self:
+                    if self.max_plants > len(self.plants):
+                        self.plants.append(plant)
         except AttributeError:
-            raise AttributeError("You got too many plants, fool!")
+            raise AttributeError("Cannot add plants not hospitable for this environment.")
+
 
     def __str__(self):
         return self.name
