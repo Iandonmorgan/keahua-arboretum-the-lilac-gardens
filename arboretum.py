@@ -2,11 +2,11 @@ class Arboretum:
     def __init__(self, name, address):
         self.name = name
         self.address = address
-        self.mountains = []
-        self.swamps = []
-        self.grasslands = []
-        self.forests = []
-        self.rivers = []
+        self.__mountains = []
+        self.__swamps = []
+        self.__grasslands = []
+        self.__forests = []
+        self.__rivers = []
 
     @property
     def mountains(self):
