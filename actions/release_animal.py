@@ -31,5 +31,3 @@ def release_animal(arboretum):
 
 
     arboretum.rivers[int(choice) - 1].animals.append(animal)
-
-

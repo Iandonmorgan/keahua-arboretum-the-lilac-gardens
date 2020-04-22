@@ -26,10 +26,12 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_plant(self, plant):
         try:
-            if self.max_plants > len(self.plants):
-                self.plants.append(plant)
+            for location in plant.hospitable_locations:
+                if location == self:
+                    if self.max_plants > len(self.plants):
+                        self.plants.append(plant)
         except AttributeError:
-            raise AttributeError("You got too many plants, fool!")
+            raise AttributeError("Cannot add plants not hospitable for this environment.")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

@@ -1,25 +1,22 @@
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
+from interfaces import Identifiable, IContainsAnimals, IContainsPlants
 
-class Mountain(IContainsAnimals, IContainsPlants, Identifiable):
+
+class Coastline(IContainsAnimals, IContainsPlants, Identifiable):
 
     def __init__(self):
       IContainsAnimals.__init__(self)
       IContainsPlants.__init__(self)
       Identifiable.__init__(self)
-      self.max_animals = 6
-      self.max_plants = 4
-      self.characteristics: "High Elevation"
+      self.max_animals = 15
+      self.max_plants = 3
+      self.characteristics = "Saltwater"
 
     def add_animal(self, animal):
         try:
-            for location in animal.hospitable_locations:
-                if location == self:
-                    if self.max_animals > len(self.animals):
-                        self.animals.append(animal)
+            if animal.aquatic and animal.cell_type == "hypotonic":
+                self.animals.append(animal)
         except AttributeError:
-            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
+            raise AttributeError("Cannot add non-aquatic, or freshwater animals to a coastline environment.")
 
     def add_plant(self, plant):
         try:
