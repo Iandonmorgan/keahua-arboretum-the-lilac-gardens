@@ -1,8 +1,8 @@
 
 from animals import Animal
-from interfaces import Identifiable, IFlying, IWalking, ISwimming, ITerrestrial
+from interfaces import Identifiable, IFlying, IWalking, ISwimming, ITerrestrial, IHospitable
 
-class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial):
+class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial, IHospitable):
 
     def __init__(self):
         Animal.__init__(self, "Nene Goose")
@@ -11,8 +11,9 @@ class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial
         IWalking.__init__(self)
         ISwimming.__init__(self)
         ITerrestrial.__init__(self)
+        IHospitable.__init__(self)
         self.__food = { "Vegetation" }
-        self.hospitable_locations = list()
+
 
 
     @property

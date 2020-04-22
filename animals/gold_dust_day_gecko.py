@@ -1,15 +1,15 @@
 from animals import Animal
-from interfaces import Identifiable, IWalking, ITerrestrial
+from interfaces import Identifiable, IWalking, ITerrestrial, IHospitable
 
-class GoldDustDayGecko(Animal,Identifiable, IWalking, ITerrestrial):
+class GoldDustDayGecko(Animal,Identifiable, IWalking, ITerrestrial, IHospitable):
 
     def __init__(self):
         Animal.__init__(self, "River Gecko")
         IWalking.__init__(self)
         ITerrestrial.__init__(self)
         Identifiable.__init__(self)
+        IHospitable.__init__(self)
         self.__prey = { "insects" }
-        self.hospitable_locations = list()
 
 
     @property
