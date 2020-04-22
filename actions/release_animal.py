@@ -13,9 +13,9 @@ def release_animal(arboretum):
     print("6. 'Ulae")
     print("7. Ope'ape'a")
     print("8. Happy-Face Spider")
-
-
-    choice = input("Choose animal to release > ")
+    print()
+    print("Choose animal.")
+    choice = input("> ")
 
     # if choice == "1":
     #     animal = GoldDustDayGecko()
