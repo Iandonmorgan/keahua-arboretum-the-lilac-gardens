@@ -2,7 +2,7 @@ from interfaces import IAquatic
 from interfaces import Identifiable
 from interfaces import IContainsAnimals
 from interfaces import IContainsPlants
-from animals import RiverDolphin
+# from animals import RiverDolphin
 
 
 class River(IContainsAnimals, IContainsPlants, Identifiable):
@@ -11,6 +11,9 @@ class River(IContainsAnimals, IContainsPlants, Identifiable):
       IContainsAnimals.__init__(self)
       IContainsPlants.__init__(self)
       Identifiable.__init__(self)
+      self.max_animals = 12
+      self.max_plants = 6
+      self.characteristics = "Fresh water"
 
     def add_animal(self, animal):
         try:
