@@ -1,6 +1,8 @@
+import os
 from animals import RiverDolphin
 
 def release_animal(arboretum):
+    os.system('cls' if os.name == 'nt' else 'clear')
     animal = None
 
     print("1. Gold Dust Day Gecko")
