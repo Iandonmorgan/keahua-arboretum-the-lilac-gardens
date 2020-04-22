@@ -1,15 +1,18 @@
 import sys
 sys.path.append('../')
 
-from environments.environment import Environment
-from interfaces.habitats import IStagnant
-# from animals.
+from interfaces import IStagnant
+from interfaces import Identifiable
+from interfaces import IContainsAnimals
+from interfaces import IContainsPlants
 
 
-class Swamp(Environment):
+class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
 
-    def __init__(self, name):
-      self.name = name
+    def __init__(self):
+      IContainsAnimals.__init__(self)
+      IContainsPlants.__init__(self)
+      Identifiable.__init__(self)
       self.inhabitants = []
 
     def animal_count(self):
