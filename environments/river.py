@@ -1,8 +1,4 @@
-from interfaces import IAquatic
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
-# from animals import RiverDolphin
+from interfaces import IAquatic, Identifiable, IContainsAnimals, IContainsPlants
 
 
 class River(IContainsAnimals, IContainsPlants, Identifiable):
@@ -18,13 +14,21 @@ class River(IContainsAnimals, IContainsPlants, Identifiable):
     def add_animal(self, animal):
         try:
             if animal.aquatic and animal.cell_type == "hypertonic":
-                self.animals.append(animal)
+                if self.max_animals > len(self.animals):
+                    self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add non-aquatic, or saltwater animals to a river")
 
     def add_plant(self, plant):
         try:
             if plant.freshwater and plant.requires_current:
-                self.plants.append(plant)
+                if self.max_plants > len(self.plants):
+                    self.plants.append(plant)
         except AttributeError:
             raise AttributeError("Cannot add plants that require brackish water or stagnant water to a river biome")
+
+    def animal_count(self):
+        return f'This place has {len(self.animals)} animals in it'
+
+    def __str__(self):
+        return self.name

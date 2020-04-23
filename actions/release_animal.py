@@ -41,30 +41,34 @@ def release_animal(arboretum):
 
     if choice == "8":
         animal = HappyFaceSpider()
-
-    # else:
-    #      print("thats wrong")
-    #      return
-
     
 
     for index, river in enumerate(arboretum.rivers):
-        print(f'{index + 1}. River {river.id}')
+        print(f'{index + 1}. River {len(river.animals)} animals')
+
 
     for index, mountain in enumerate(arboretum.mountains):
-        print(f'{index + 1}. Mountain {mountain.id}')
+        print(f'{index + 1}. Mountain {len(mountain.animals)} animals')
 
-    for index, mountain in enumerate(arboretum.mountains):
-        print(f'{index + 1}. Mountain {mountain.id}')
+    for index, swamp in enumerate(arboretum.swamps):
+        print(f'{index + 1}. Swamp {len(swamp.animals)} animals')
     
-    for index, mountain in enumerate(arboretum.mountains):
-        print(f'{index + 1}. Mountain {mountain.id}')
+    for index, grassland in enumerate(arboretum.grasslands):
+        print(f'{index + 1}. Grassland {len(grassland.animals)} animals')
+    
+    for index, forest in enumerate(arboretum.forests):
+        print(f'{index + 1}. Forest {len(forest.animals)} animals')
+    
+    for index, coastline in enumerate(arboretum.coastlines):
+        print(f'{index + 1}. Coastline {len(coastline.animals)} animals')
     
     print("Release the animal into which biome?")
     choice = input("> ")
 
-    arboretum.rivers[int(choice) - 1].add_animals(animal)
-    arboretum.mountains[int(choice) - 1].add_animals(animal)
-    arboretum.[int(choice) - 1].add_animals(animal)
-    arboretum.rivers[int(choice) - 1].add_animals(animal)
+    arboretum.rivers[int(choice) - 1].add_animal(animal)
+    arboretum.mountains[int(choice) - 1].add_animal(animal)
+    arboretum.grasslands[int(choice) - 1].add_animal(animal)
+    arboretum.forests[int(choice) - 1].add_animal(animal)
+    arboretum.swamps[int(choice) - 1].add_animal(animal)
+    arboretum.coastlines[int(choice) - 1].add_animal(animal)
     
