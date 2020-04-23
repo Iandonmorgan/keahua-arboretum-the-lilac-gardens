@@ -53,7 +53,8 @@ def feed_animal(animal):
             num += 1
         
         print()
-        choice1 = input(f"What would you like to feed the {animal.species}? ")
+        print(f"What would you like to feed the {animal.species}? ")
+        choice1 = input("> ")
         if int(choice1) == 0:
             choice1 = ""
         print()
@@ -61,7 +62,8 @@ def feed_animal(animal):
         os.system('cls' if os.name == 'nt' else 'clear')
         animal.feed(animalPreyToList[prey_index])
         print()
-        choice2 = input("Press any key to return to the main menu... ")
+        print("Press any key to return to the main menu... ")
+        choice2 = input("> ")
     except ValueError:
         print()
         error_message = input("Animals can't eat letters. Press any key to return to the main menu... ")
