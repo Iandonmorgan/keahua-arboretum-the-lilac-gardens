@@ -22,7 +22,6 @@ def release_animal(arboretum):
 
     if choice == "2":
         animal = RiverDolphin()
-        print(animal)
 
     if choice == "3":
         animal = NeneGoose()
