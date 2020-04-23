@@ -3,6 +3,8 @@ def build_facility_report(arboretum):
         print(f'Mountain [{str(mountain.id).split("-")[0]}]')
         for animal in mountain.animals:
             print(f'{animal.species} ({str(animal.id).split("-")[0]})')
+        for plant in mountain.plants:
+            print(f'{plant.species} ({str(plant.id).split("-")[0]})')
     print()
     for swamp in arboretum.swamps:
         print(f'Swamp [{str(swamp.id).split("-")[0]}]')
