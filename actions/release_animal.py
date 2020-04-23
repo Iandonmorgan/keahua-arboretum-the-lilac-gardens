@@ -43,32 +43,84 @@ def release_animal(arboretum):
         animal = HappyFaceSpider()
     
 
+    biome = dict()
+    num = 1
     for index, river in enumerate(arboretum.rivers):
-        print(f'{index + 1}. River {len(river.animals)} animals')
-
+        print(f'{num}. River ({len(river.animals)} animals)')
+        biome[num] = arboretum.rivers[index]
+        num += 1
 
     for index, mountain in enumerate(arboretum.mountains):
-        print(f'{index + 1}. Mountain {len(mountain.animals)} animals')
+        print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+        biome[num] = arboretum.mountains[index]
+        num += 1
 
     for index, swamp in enumerate(arboretum.swamps):
-        print(f'{index + 1}. Swamp {len(swamp.animals)} animals')
+        print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+        biome[num] = arboretum.swamps[index]
+        num += 1
     
     for index, grassland in enumerate(arboretum.grasslands):
-        print(f'{index + 1}. Grassland {len(grassland.animals)} animals')
+        print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+        biome[num] = arboretum.grasslands[index]
+        num += 1
     
     for index, forest in enumerate(arboretum.forests):
-        print(f'{index + 1}. Forest {len(forest.animals)} animals')
+        print(f'{num}. Forest ({len(forest.animals)} animals)')
+        biome[num] = arboretum.forests[index]
+        num += 1
     
     for index, coastline in enumerate(arboretum.coastlines):
-        print(f'{index + 1}. Coastline {len(coastline.animals)} animals')
+        print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+        biome[num] = arboretum.coastlines[index]
+        num += 1
     
-    print("Release the animal into which biome?")
+    print()
+    print("Where would you like to place the animal?")
     choice = input("> ")
 
-    arboretum.rivers[int(choice) - 1].add_animal(animal)
-    arboretum.mountains[int(choice) - 1].add_animal(animal)
-    arboretum.grasslands[int(choice) - 1].add_animal(animal)
-    arboretum.forests[int(choice) - 1].add_animal(animal)
-    arboretum.swamps[int(choice) - 1].add_animal(animal)
-    arboretum.coastlines[int(choice) - 1].add_animal(animal)
-    
+    env = biome[int(choice)]
+    def choice_fn(environment):
+        if environment.max_animals > len(environment.animals):
+            environment.add_animal(animal)
+        else:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("**** That biome is not large enough ****")
+            print("**** Please choose another one ****")
+            print()
+            biome = dict()
+            num = 1
+            for index, river in enumerate(arboretum.rivers):
+                print(f'{num}. River ({len(river.animals)} animals)')
+                biome[num] = arboretum.rivers[index]
+                num += 1
+
+            for index, mountain in enumerate(arboretum.mountains):
+                print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+                biome[num] = arboretum.mountains[index]
+                num += 1
+
+            for index, swamp in enumerate(arboretum.swamps):
+                print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+                biome[num] = arboretum.swamps[index]
+                num += 1
+            
+            for index, grassland in enumerate(arboretum.grasslands):
+                print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+                biome[num] = arboretum.grasslands[index]
+                num += 1
+            
+            for index, forest in enumerate(arboretum.forests):
+                print(f'{num}. Forest ({len(forest.animals)} animals)')
+                biome[num] = arboretum.forests[index]
+                num += 1
+            
+            for index, coastline in enumerate(arboretum.coastlines):
+                print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+                biome[num] = arboretum.coastlines[index]
+                num += 1
+            
+            print()
+            print(f'Where would you like to release the {animal.species}?')
+
+    choice_fn(env)
