@@ -8,7 +8,7 @@ class Opeapea(Animal, Identifiable, IFlying, IHospitable):
         Identifiable.__init__(self)
         IFlying.__init__(self)
         IHospitable.__init__(self)
-        self.__food = {"Insects and Vegetation"}
+        self.__prey = {"Insects and Vegetation"}
 
     @property
     def prey(self):
