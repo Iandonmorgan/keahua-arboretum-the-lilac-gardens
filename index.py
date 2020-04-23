@@ -33,7 +33,7 @@ def main_menu():
     build_menu()
     print()
     print("Choose a KILLER option.")
-    choice = input(">> ")
+    choice = input("> ")
 
     if choice == "1":
         annex_habitat(keahua)
