@@ -24,7 +24,7 @@ def cultivate_plant(arboretum):
     if choice == "4":
         plant = BlueJadeVine()
 
-        biome = dict()
+    biome = dict()
 
     num = 1
 

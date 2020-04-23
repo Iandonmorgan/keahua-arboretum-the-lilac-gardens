@@ -7,4 +7,4 @@ class MountainAppleTree:
         Plant.__init__(self, "Mountain Apple Tree", "Partial", 17, "High" )
         Identifiable.__init__(self)
         IHospitable.__init__(self)
-        self.hospitable_locations = set("Mountain")
+        self.hospitable_locations = ["Mountain"]
