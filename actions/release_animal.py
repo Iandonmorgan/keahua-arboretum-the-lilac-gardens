@@ -88,7 +88,7 @@ def release_animal(arboretum):
             print("**** That biome is not large enough ****")
             print("**** Please choose another one ****")
             print()
-            biome = dict()
+            # biome = dict()
             num = 1
             for index, river in enumerate(arboretum.rivers):
                 print(f'{num}. River ({len(river.animals)} animals)')
@@ -122,5 +122,8 @@ def release_animal(arboretum):
             
             print()
             print(f'Where would you like to release the {animal.species}?')
+            choice = input("> ")
+
+            env = biome[int(choice)]
 
     choice_fn(env)
