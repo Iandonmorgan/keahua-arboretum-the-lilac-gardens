@@ -23,8 +23,11 @@ def release_animal(arboretum):
     if choice == "2":
         animal = RiverDolphin()
 
+    biome = dict()
     for index, river in enumerate(arboretum.rivers):
         print(f'{index + 1}. River {river.id}')
+        biome[index + 1] = "river"
+        print(biome)
 
     print("Release the animal into which biome?")
     choice = input("> ")

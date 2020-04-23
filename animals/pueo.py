@@ -8,7 +8,7 @@ class Pueo(Animal, Identifiable, IFlying, IHospitable):
         Identifiable.__init__(self)
         IFlying.__init__(self)
         IHospitable.__init__(self)
-        self.__food = {"Rodents"}
+        self.__prey = {"Rodents"}
 
 
     @property
