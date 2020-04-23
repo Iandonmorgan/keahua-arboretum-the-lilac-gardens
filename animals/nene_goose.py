@@ -12,7 +12,7 @@ class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial
         ISwimming.__init__(self)
         ITerrestrial.__init__(self)
         IHospitable.__init__(self)
-        self.__food = { "Vegetation" }
+        self.__prey = { "Vegetation" }
 
 
 
