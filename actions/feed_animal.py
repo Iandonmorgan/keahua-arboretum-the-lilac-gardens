@@ -44,11 +44,24 @@ def feed_animal_menu(arboretum):
 
 def feed_animal(animal):
     os.system('cls' if os.name == 'nt' else 'clear')
-    for food in animal.prey:
-        animal.feed(food)
-    choice = input("> ")
+    num = 1
 
+    animalPreyToList = list(animal.prey)
+    for food in animalPreyToList:
+        print(f"{num} {food}")
+        num += 1
     
+    print()
+    choice1 = input(f"What would you like to feed the {animal.species}? ")
+    print()
+    prey_index = int(choice1) - 1
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
+    animal.feed(animalPreyToList[prey_index])
+    print()
+    choice2 = input("Press any key to return to main menu... ")
+
+
 
 
 

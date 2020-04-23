@@ -1,10 +1,10 @@
 import os
-from animals import RiverDolphin
+
+from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikapu, Pueo, Ulae, Opeapea, HappyFaceSpider
 
 def release_animal(arboretum):
     os.system('cls' if os.name == 'nt' else 'clear')
     animal = None
-
     print("1. Gold Dust Day Gecko")
     print("2. River Dolphin")
     print("3. Nene Goose")
@@ -17,20 +17,123 @@ def release_animal(arboretum):
     print("Choose animal.")
     choice = input("> ")
 
-    # if choice == "1":
-    #     animal = GoldDustDayGecko()
+    if choice == "1":
+        animal = GoldDustDayGecko()
 
     if choice == "2":
         animal = RiverDolphin()
+        print(animal)
+
+    if choice == "3":
+        animal = NeneGoose()
+    
+    if choice == "4":
+        animal = Kikapu()
+    
+    if choice == "5":
+        animal = Pueo()
+
+    if choice == "6":
+        animal = Ulae()
+
+    if choice == "7":
+        animal = Opeapea()
+
+    if choice == "8":
+        animal = HappyFaceSpider()
+    
 
     biome = dict()
+    num = 1
     for index, river in enumerate(arboretum.rivers):
-        print(f'{index + 1}. River {river.id}')
-        biome[index + 1] = "river"
-        print(biome)
+        print(f'{num}. River ({len(river.animals)} animals)')
+        biome[num] = arboretum.rivers[index]
+        num += 1
 
-    print("Release the animal into which biome?")
+    for index, mountain in enumerate(arboretum.mountains):
+        print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+        biome[num] = arboretum.mountains[index]
+        num += 1
+
+    for index, swamp in enumerate(arboretum.swamps):
+        print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+        biome[num] = arboretum.swamps[index]
+        num += 1
+    
+    for index, grassland in enumerate(arboretum.grasslands):
+        print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+        biome[num] = arboretum.grasslands[index]
+        num += 1
+    
+    for index, forest in enumerate(arboretum.forests):
+        print(f'{num}. Forest ({len(forest.animals)} animals)')
+        biome[num] = arboretum.forests[index]
+        num += 1
+    
+    for index, coastline in enumerate(arboretum.coastlines):
+        print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+        biome[num] = arboretum.coastlines[index]
+        num += 1
+    
+    print()
+    print("Where would you like to place the animal?")
     choice = input("> ")
 
+    try:
+        env = biome[int(choice)]
+        def choice_fn(environment):
+            try:
+                if environment.max_animals > len(environment.animals):
+                    environment.add_animal(animal)
+                else:
+                    os.system('cls' if os.name == 'nt' else 'clear')
+                    print("**** That biome is not large enough ****")
+                    print("**** Please choose another one ****")
+                    print()
+                    # biome = dict()
+                    num = 1
+                    for index, river in enumerate(arboretum.rivers):
+                        print(f'{num}. River ({len(river.animals)} animals)')
+                        biome[num] = arboretum.rivers[index]
+                        num += 1
 
-    arboretum.rivers[int(choice) - 1].animals.append(animal)
+                    for index, mountain in enumerate(arboretum.mountains):
+                        print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+                        biome[num] = arboretum.mountains[index]
+                        num += 1
+
+                    for index, swamp in enumerate(arboretum.swamps):
+                        print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+                        biome[num] = arboretum.swamps[index]
+                        num += 1
+                    
+                    for index, grassland in enumerate(arboretum.grasslands):
+                        print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+                        biome[num] = arboretum.grasslands[index]
+                        num += 1
+                    
+                    for index, forest in enumerate(arboretum.forests):
+                        print(f'{num}. Forest ({len(forest.animals)} animals)')
+                        biome[num] = arboretum.forests[index]
+                        num += 1
+                    
+                    for index, coastline in enumerate(arboretum.coastlines):
+                        print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+                        biome[num] = arboretum.coastlines[index]
+                        num += 1
+                    
+                    print()
+                    print(f'Where would you like to release the {animal.species}?')
+                    choice = input("> ")
+                    env = biome[int(choice)]
+                    choice_fn(env)
+            except ValueError:
+                pass
+            except KeyError:
+                pass
+        
+        choice_fn(env)
+    except ValueError:
+        pass
+    except KeyError:
+        pass
