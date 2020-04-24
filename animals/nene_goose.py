@@ -30,4 +30,4 @@ class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial
             print(f'The Nene Goose rejects the {prey}')
 
     def __str__(self):
-        return f'Nene Goose {self.id}. is Goosing around!'
+        return f'Nene Goose ({str(self.id).split("-")[0]}). is Goosing around!'

@@ -33,7 +33,8 @@ class Forest(IContainsAnimals, IContainsPlants, Identifiable):
 
 
     def __str__(self):
-        return self.name
+        return f'{self.name}({str(self.id).split("-")[0]})'
+
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

@@ -21,4 +21,4 @@ class Opeapea(Animal, Identifiable, IFlying, IHospitable):
             print(f'The Opeapea rejects the {prey}')
 
     def __str__(self):
-        return f'Nene Opeapea {self.id}. is Opapeaing around!'
+        return f'Nene Opeapea ({str(self.id).split("-")[0]}). is Opapeaing around!'

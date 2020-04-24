@@ -29,4 +29,4 @@ class Pueo(Animal, Identifiable, IFlying, IHospitable, IEnviroChar):
 
 
     def __str__(self):
-        return f'Pueo {self.id}. is Pueoing around!'
+        return f'Pueo ({str(self.id).split("-")[0]}). is Pueoing around!'
