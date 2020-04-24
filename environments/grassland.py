@@ -16,7 +16,7 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
     def add_animal(self, animal):
         try:
             for sunlight in animal.hospitable_sunlight:
-                if sunlight == "None":
+                if sunlight == "Full":
                     for rainfall in animal.hospitable_rainfall:
                         if rainfall == "Little":
                             self.animals.append(animal)
@@ -36,4 +36,4 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
         return f'This place has {len(self.animals)} animals in it'
 
     def __str__(self):
-        return self.name
+        return f'{self.name}({str(self.id).split("-")[0]})'

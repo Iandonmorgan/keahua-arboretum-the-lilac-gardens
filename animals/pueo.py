@@ -14,7 +14,7 @@ class Pueo(Animal, Identifiable, IFlying, IHospitable, IEnviroChar):
         self.hospitable_rainfall.append("Rainy")
         self.hospitable_rainfall.append("Little")
         self.hospitable_sunlight.append("Shady")
-        self.hospitable_sunlight.append("None")
+        self.hospitable_sunlight.append("Full")
 
 
     @property
@@ -29,4 +29,4 @@ class Pueo(Animal, Identifiable, IFlying, IHospitable, IEnviroChar):
 
 
     def __str__(self):
-        return f'Pueo {self.id}. is Pueoing around!'
+        return f'Pueo ({str(self.id).split("-")[0]}). is Pueoing around!'
