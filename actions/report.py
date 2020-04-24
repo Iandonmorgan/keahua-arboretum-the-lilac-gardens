@@ -5,7 +5,7 @@ def build_facility_report(arboretum):
     for mountain in arboretum.mountains:
         print(f'Mountain [{str(mountain.id).split("-")[0]}]')
         for animal in mountain.animals:
-            print(f'{animal.species} ({str(animal.id).split("-")[0]})')
+            print(f'    {animal.species} ({str(animal.id).split("-")[0]})')
         for plant in mountain.plants:
             print(f'    {plant.species} ({str(plant.id).split("-")[0]})')
     print()
