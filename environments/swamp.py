@@ -1,10 +1,7 @@
 import sys
 sys.path.append('../')
 
-from interfaces import IStagnant
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
+from interfaces import IStagnant, Identifiable, IContainsAnimals, IContainsPlants
 
 
 class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
@@ -16,13 +13,14 @@ class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
       self.max_animals = 8
       self.max_plants = 12
       self.characteristics = "Stagnant fresh water"
-      self.inhabitants = []
 
     def add_animal(self, item):
-        if self.max_animals > len(self.animals):
-            if not isinstance(item, IStagnant):
-                raise TypeError(f"{item} is not of type IStagnant")
-            self.inhabitants.append(item)
+        try:
+            if self.max_animals > len(self.animals) and isinstance(item, IStagnant):
+                self.animals.append(item)
+        except AttributeError:
+            raise AttributeError(
+                "Cannot add non-stagnant animals to a swamp")
 
     def add_plant(self, plant):
         try:
