@@ -14,16 +14,18 @@ class Forest(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_animal(self, animal):
         try:
-            for location in animal.hospitable_locations:
-                if location == self:
-                    self.animals.append(animal)
+            for sunlight in animal.hospitable_sunlight:
+                if sunlight == "Shady":
+                    for rainfall in animal.hospitable_rainfall:
+                        if rainfall == "Rainy":
+                            self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add your animal to this non-hospitable environment.")
 
     def add_plant(self, plant):
         try:
             for location in plant.hospitable_locations:
-                if location == self:
+                if location == "Forest":
                     if self.max_plants > len(self.plants):
                         self.plants.append(plant)
         except AttributeError:
