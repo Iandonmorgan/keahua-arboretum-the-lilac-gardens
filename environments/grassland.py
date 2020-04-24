@@ -36,4 +36,4 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
         return f'This place has {len(self.animals)} animals in it'
 
     def __str__(self):
-        return self.name
+        return f'{self.name}({str(self.id).split("-")[0]})'
