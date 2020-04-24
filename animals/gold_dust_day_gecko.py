@@ -28,4 +28,4 @@ class GoldDustDayGecko(Animal,Identifiable, IWalking, ITerrestrial, IHospitable,
 
 
     def __str__(self):
-        return f'Gecko {self.id}. is Geckoing around!'
+        return f'Gecko ({str(self.id).split("-")[0]}). is Geckoing around!'

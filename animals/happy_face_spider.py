@@ -26,4 +26,4 @@ class HappyFaceSpider(Animal,Identifiable, IWalking, ITerrestrial, IHospitable, 
 
 
     def __str__(self):
-        return f'Happy Face Spider {self.id}. is Happy Face Spidering around!'
+        return f'Happy Face Spider ({str(self.id).split("-")[0]}). is Happy Face Spidering around!'

@@ -25,4 +25,4 @@ class RiverDolphin(Animal, Identifiable, IFreshwater, ISwimming, IHospitable):
 
 
     def __str__(self):
-        return f'River Dolphin {self.id}. is River Dolphining around!'
+        return f'River Dolphin ({str(self.id).split("-")[0]}). is River Dolphining around!'
