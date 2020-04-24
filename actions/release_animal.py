@@ -43,7 +43,6 @@ def release_animal(arboretum):
     
 
     biome = dict()
-
     def menu_function():
         num = 1
         for index, river in enumerate(arboretum.rivers):
@@ -89,10 +88,7 @@ def release_animal(arboretum):
         env = biome[int(choice)]
         def choice_fn(environment):
             try:
-                if environment.name == "Volcano":
-                    environment.add_animal(animal)
-                    # raise NameError
-                elif environment.max_animals > len(environment.animals):
+                if environment.max_animals > len(environment.animals):
                     environment.add_animal(animal)
                 else:
                     os.system('cls' if os.name == 'nt' else 'clear')
