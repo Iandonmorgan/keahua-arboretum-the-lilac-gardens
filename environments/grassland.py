@@ -1,10 +1,7 @@
 import sys
+from interfaces import Identifiable, IContainsAnimals, IContainsPlants
+
 sys.path.append('../')
-
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
-
 
 class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
 

@@ -15,7 +15,7 @@ class Forest(IContainsAnimals, IContainsPlants, Identifiable):
     def add_animal(self, animal):
         try:
             for location in animal.hospitable_locations:
-                if location == self:
+                if location == "Forest":
                     self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add your animal to this non-hospitable environment.")
