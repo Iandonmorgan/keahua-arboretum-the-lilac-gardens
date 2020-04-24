@@ -6,8 +6,8 @@ from .swimming import ISwimming
 from .saltwater import ISaltwater
 from .identifiable import Identifiable
 from .hospitable import IHospitable
+from .environmentCharacteristics import IEnviroChar
 from .habitat.stagnant import IStagnant
 from .animal.freshwater import IFreshwater
 from .habitat.contains_animals import IContainsAnimals
 from .habitat.contains_plants import IContainsPlants
-

@@ -130,9 +130,14 @@ def release_animal(arboretum):
                 pass
             except KeyError:
                 pass
+            except AttributeError:
+                input("Not gonna happen. Press any key to continue...")
+                pass
         
         choice_fn(env)
     except ValueError:
         pass
     except KeyError:
+        pass
+    except AttributeError:
         pass
