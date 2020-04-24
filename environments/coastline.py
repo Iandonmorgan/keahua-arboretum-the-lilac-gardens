@@ -21,7 +21,7 @@ class Coastline(IContainsAnimals, IContainsPlants, Identifiable):
     def add_plant(self, plant):
         try:
             for location in plant.hospitable_locations:
-                if location == self:
+                if location == "Coastline":
                     if self.max_plants > len(self.plants):
                         self.plants.append(plant)
         except AttributeError:
