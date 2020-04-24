@@ -15,10 +15,12 @@ class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
       self.characteristics = "Stagnant fresh water"
 
     def add_animal(self, item):
-        if self.max_animals > len(self.animals):
-            if not isinstance(item, IStagnant):
-                raise TypeError(f"{item} is not of type IStagnant")
-            self.animals.append(item)
+        try:
+            if self.max_animals > len(self.animals) and isinstance(item, IStagnant):
+                self.animals.append(item)
+        except AttributeError:
+            raise AttributeError(
+                "Cannot add non-stagnant animals to a swamp")
 
     def add_plant(self, plant):
         try:
