@@ -15,7 +15,7 @@ class NeneGoose(Animal, Identifiable, IFlying, IWalking, ISwimming, ITerrestrial
         IEnviroChar.__init__(self)
         self.__prey = { "Vegetation" }
         self.hospitable_rainfall.append("Little")
-        self.hospitable_sunlight.append("None")
+        self.hospitable_sunlight.append("Full")
 
 
 

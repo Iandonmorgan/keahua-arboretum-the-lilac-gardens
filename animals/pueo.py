@@ -14,7 +14,7 @@ class Pueo(Animal, Identifiable, IFlying, IHospitable, IEnviroChar):
         self.hospitable_rainfall.append("Rainy")
         self.hospitable_rainfall.append("Little")
         self.hospitable_sunlight.append("Shady")
-        self.hospitable_sunlight.append("None")
+        self.hospitable_sunlight.append("Full")
 
 
     @property
