@@ -22,12 +22,12 @@ class River(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_plant(self, plant):
         try:
-            if plant.freshwater and plant.requires_current:
-                if self.max_plants > len(self.plants):
-                    self.plants.append(plant)
+            for location in plant.hospitable_locations:
+                if location == "River":
+                    if self.max_plants > len(self.plants):
+                        self.plants.append(plant)
         except AttributeError:
-            raise AttributeError(
-                "Cannot add plants that require brackish water or stagnant water to a river biome")
+            raise AttributeError("Cannot add plants not hospitable for this environment.")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

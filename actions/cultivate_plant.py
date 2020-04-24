@@ -93,13 +93,19 @@ def cultivate_plant(arboretum):
                     env = biome[int(choice)]
                     choice_fn(env)
             except ValueError:
-                pass
+                print()
+                error_message = input("Nope. Pick a number, stupid")
             except KeyError:
+                pass
+            except AttributeError:
                 pass
         
         choice_fn(env)
     except ValueError:
-        pass
+        print()
+        error_message = input("Nope. Pick a number, stupid")
     except KeyError:
+        pass
+    except AttributeError:
         pass
     
