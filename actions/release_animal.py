@@ -73,6 +73,8 @@ def release_animal(arboretum):
         print(f'{num}. Coastline ({len(coastline.animals)} animals)')
         biome[num] = arboretum.coastlines[index]
         num += 1
+
+    print(f'{num}. Throw it in the Volcano!')
     
     print()
     print("Where would you like to place the animal?")

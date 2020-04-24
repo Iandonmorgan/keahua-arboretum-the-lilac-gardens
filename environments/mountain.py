@@ -14,6 +14,12 @@ class Mountain(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_animal(self, animal):
         try:
+            for altitude in animal.hospitable_altitude:
+                if altitude == "High Elevation":
+                    self.animals.append(animal)
+        except AttributeError:
+            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
+        try:
             for location in animal.hospitable_locations:
                 if location == self:
                     if self.max_animals > len(self.animals):
