@@ -1,10 +1,7 @@
 import sys
+from interfaces import Identifiable, IContainsAnimals, IContainsPlants
+
 sys.path.append('../')
-
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
-
 
 class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
 
@@ -18,9 +15,11 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_animal(self, animal):
         try:
-            for location in animal.hospitable_locations:
-                if location == self:
-                    self.animals.append(animal)
+            for sunlight in animal.hospitable_sunlight:
+                if sunlight == "None":
+                    for rainfall in animal.hospitable_rainfall:
+                        if rainfall == "Little":
+                            self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add your animal to this non-hospitable environment.")
 
