@@ -1,13 +1,20 @@
+from environments import Volcano
+
 class Arboretum:
     def __init__(self, name, address):
         self.name = name
         self.address = address
+        self.__volcano = [Volcano()]
         self.__mountains = []
         self.__swamps = []
         self.__grasslands = []
         self.__forests = []
         self.__rivers = []
         self.__coastlines = []
+
+    @property
+    def volcano(self):
+        return self.__volcano
 
     @property
     def mountains(self):
