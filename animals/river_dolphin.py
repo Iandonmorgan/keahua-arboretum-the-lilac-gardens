@@ -9,8 +9,6 @@ class RiverDolphin(Animal, IFreshwater, ISwimming):
         ISwimming.__init__(self)
         self.__prey = { "Trout", "Mackarel", "Salmon", "Sardine" }
 
-
-
     @property
     def prey(self):
         return self.__prey

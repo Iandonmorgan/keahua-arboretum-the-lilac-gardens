@@ -10,10 +10,10 @@ class Opeapea(Animal, IFlying, ITerrestrial, IEnviroChar):
         IEnviroChar.__init__(self)
         self.__prey = {"Insects and Vegetation"}
         self.hospitable_sunlight.append("Partial")
-        self.hospitable_sunlight.append("Shade")
+        self.hospitable_sunlight.append("Shady")
         self.hospitable_altitude.append("Low")
         self.hospitable_altitude.append("High Elevation")
-
+        self.hospitable_rainfall.append("Rainy")
 
     @property
     def prey(self):
