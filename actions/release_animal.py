@@ -47,34 +47,40 @@ def release_animal(arboretum):
             int(choice) == int
             if int(choice) > 0 and int(choice) < 9:
                 for index, river in enumerate(arboretum.rivers):
-                    print(f'{num}. River ({len(river.animals)} animals)')
-                    biome[num] = arboretum.rivers[index]
-                    num += 1
+                    if river.max_animals > len(river.animals):
+                        print(f'{num}. River ({len(river.animals)} animals)')
+                        biome[num] = arboretum.rivers[index]
+                        num += 1
 
                 for index, mountain in enumerate(arboretum.mountains):
-                    print(f'{num}. Mountain ({len(mountain.animals)} animals)')
-                    biome[num] = arboretum.mountains[index]
-                    num += 1
+                    if mountain.max_animals > len(mountain.animals):
+                        print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+                        biome[num] = arboretum.mountains[index]
+                        num += 1
 
                 for index, swamp in enumerate(arboretum.swamps):
-                    print(f'{num}. Swamp ({len(swamp.animals)} animals)')
-                    biome[num] = arboretum.swamps[index]
-                    num += 1
+                    if swamp.max_animals > len(swamp.animals):
+                        print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+                        biome[num] = arboretum.swamps[index]
+                        num += 1
                 
                 for index, grassland in enumerate(arboretum.grasslands):
-                    print(f'{num}. Grassland ({len(grassland.animals)} animals)')
-                    biome[num] = arboretum.grasslands[index]
-                    num += 1
+                    if grassland.max_animals > len(grassland.animals):
+                        print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+                        biome[num] = arboretum.grasslands[index]
+                        num += 1
                 
                 for index, forest in enumerate(arboretum.forests):
-                    print(f'{num}. Forest ({len(forest.animals)} animals)')
-                    biome[num] = arboretum.forests[index]
-                    num += 1
+                    if forest.max_animals > len(forest.animals):
+                        print(f'{num}. Forest ({len(forest.animals)} animals)')
+                        biome[num] = arboretum.forests[index]
+                        num += 1
                 
                 for index, coastline in enumerate(arboretum.coastlines):
-                    print(f'{num}. Coastline ({len(coastline.animals)} animals)')
-                    biome[num] = arboretum.coastlines[index]
-                    num += 1
+                    if coastline.max_animals > len(coastline.animals):
+                        print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+                        biome[num] = arboretum.coastlines[index]
+                        num += 1
 
                 for index, volcano in enumerate(arboretum.volcano):
                     print(f'{num}. Throw it in the volcano.')
@@ -104,19 +110,7 @@ def release_animal(arboretum):
         env = biome[int(choice)]
         def choice_fn(environment):
             try:
-                if environment.max_animals > len(environment.animals):
-                    environment.add_animal(animal)
-                else:
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    print("**** That biome is not large enough ****")
-                    print("**** Please choose another one ****")
-                    print()
-                    menu_function()
-                    print()
-                    print(f'Where would you like to release the {animal.species}?')
-                    choice = input("> ")
-                    env = biome[int(choice)]
-                    choice_fn(env)
+                environment.add_animal(animal)
             except ValueError:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 input("The environment is not suitable for that animal. Press any key to continue...")
