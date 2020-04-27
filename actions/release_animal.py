@@ -1,5 +1,4 @@
 import os
-
 from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikapu, Pueo, Ulae, Opeapea, HappyFaceSpider
 
 def release_animal(arboretum):
@@ -16,29 +15,33 @@ def release_animal(arboretum):
     print()
     print("Choose animal.")
     choice = input("> ")
-    if choice == "1":
-        animal = GoldDustDayGecko()
 
-    if choice == "2":
-        animal = RiverDolphin()
+    if int(choice) > 0 and int(choice) < 9:
+        if choice == "1":
+            animal = GoldDustDayGecko()
 
-    if choice == "3":
-        animal = NeneGoose()
-    
-    if choice == "4":
-        animal = Kikapu()
-    
-    if choice == "5":
-        animal = Pueo()
+        if choice == "2":
+            animal = RiverDolphin()
 
-    if choice == "6":
-        animal = Ulae()
+        if choice == "3":
+            animal = NeneGoose()
+        
+        if choice == "4":
+            animal = Kikapu()
+        
+        if choice == "5":
+            animal = Pueo()
 
-    if choice == "7":
-        animal = Opeapea()
+        if choice == "6":
+            animal = Ulae()
 
-    if choice == "8":
-        animal = HappyFaceSpider()
+        if choice == "7":
+            animal = Opeapea()
+
+        if choice == "8":
+            animal = HappyFaceSpider()
+    else:
+        pass
 
     biome = dict()
     def menu_function():
@@ -82,13 +85,11 @@ def release_animal(arboretum):
                         biome[num] = arboretum.coastlines[index]
                         num += 1
 
-                for index, volcano in enumerate(arboretum.volcano):
-                    print(f'{num}. Throw it in the volcano.')
-                    biome[num] = arboretum.volcano[index]
-                    num += 1
-            else:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                input("Please enter a valid option next time. Press enter to return to the main menu...")
+            for index, volcano in enumerate(arboretum.volcano):
+                print(f'{num}. Throw it in the volcano.')
+                biome[num] = arboretum.volcano[index]
+                num += 1
+                
         except KeyError:
             os.system('cls' if os.name == 'nt' else 'clear')
             input("Please enter a valid option next time. Press enter to return to the main menu...")
@@ -102,9 +103,6 @@ def release_animal(arboretum):
     print()
     print("Where would you like to place the animal?")
     choice = input("> ")
-
-            
-    
 
     try:
         env = biome[int(choice)]
