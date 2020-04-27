@@ -65,19 +65,22 @@ def release_animal(arboretum):
                         num += 1
                 
                 for index, grassland in enumerate(arboretum.grasslands):
-                    print(f'{num}. Grassland ({len(grassland.animals)} animals)')
-                    biome[num] = arboretum.grasslands[index]
-                    num += 1
+                    if grassland.max_animals > len(arboretum.grasslands):
+                        print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+                        biome[num] = arboretum.grasslands[index]
+                        num += 1
                 
                 for index, forest in enumerate(arboretum.forests):
-                    print(f'{num}. Forest ({len(forest.animals)} animals)')
-                    biome[num] = arboretum.forests[index]
-                    num += 1
+                    if forest.max_animals > len(arboretum.forests):
+                        print(f'{num}. Forest ({len(forest.animals)} animals)')
+                        biome[num] = arboretum.forests[index]
+                        num += 1
                 
                 for index, coastline in enumerate(arboretum.coastlines):
-                    print(f'{num}. Coastline ({len(coastline.animals)} animals)')
-                    biome[num] = arboretum.coastlines[index]
-                    num += 1
+                    if coastline.max_animals > len(arboretum.coastlines):
+                        print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+                        biome[num] = arboretum.coastlines[index]
+                        num += 1
 
                 for index, volcano in enumerate(arboretum.volcano):
                     print(f'{num}. Throw it in the volcano.')
