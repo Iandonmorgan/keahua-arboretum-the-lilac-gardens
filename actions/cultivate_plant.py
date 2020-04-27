@@ -114,7 +114,7 @@ def cultivate_plant(arboretum):
                     choice_fn(env)
             except ValueError:
                 print()
-                error_message = input("Nope. Pick a number, stupid")
+                error_message = input("ValueError. Returning to main menu.")
             except KeyError:
                 print()
                 error_message = input("Nope. Pick a number, stupid")
@@ -126,7 +126,8 @@ def cultivate_plant(arboretum):
     except ValueError:
         pass
     except KeyError:
-        pass
+        print()
+        error_message = input("KeyError. Returning to main menu.")
     except AttributeError:
         pass
     except UnboundLocalError:
