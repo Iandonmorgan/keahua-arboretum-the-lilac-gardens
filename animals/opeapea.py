@@ -1,13 +1,11 @@
 from animals import Animal
-from interfaces import Identifiable, IFlying, IHospitable,ITerrestrial, IEnviroChar 
+from interfaces import IFlying, ITerrestrial, IEnviroChar 
 
-class Opeapea(Animal, Identifiable, IFlying, IHospitable, ITerrestrial, IEnviroChar):
+class Opeapea(Animal, IFlying, ITerrestrial, IEnviroChar):
 
     def __init__(self):
         Animal.__init__(self, "Opeapea")
-        Identifiable.__init__(self)
         IFlying.__init__(self)
-        IHospitable.__init__(self)
         ITerrestrial.__init__(self)
         IEnviroChar.__init__(self)
         self.__prey = {"Insects and Vegetation"}
