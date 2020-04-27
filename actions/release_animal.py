@@ -53,31 +53,31 @@ def release_animal(arboretum):
                         num += 1
 
                 for index, mountain in enumerate(arboretum.mountains):
-                    if mountain.max_animals > len(arboretum.mountains):
+                    if mountain.max_animals > len(mountain.animals):
                         print(f'{num}. Mountain ({len(mountain.animals)} animals)')
                         biome[num] = arboretum.mountains[index]
                         num += 1
 
                 for index, swamp in enumerate(arboretum.swamps):
-                    if swamp.max_animals > len(arboretum.swamps):
+                    if swamp.max_animals > len(swamp.animals):
                         print(f'{num}. Swamp ({len(swamp.animals)} animals)')
                         biome[num] = arboretum.swamps[index]
                         num += 1
                 
                 for index, grassland in enumerate(arboretum.grasslands):
-                    if grassland.max_animals > len(arboretum.grasslands):
+                    if grassland.max_animals > len(grassland.animals):
                         print(f'{num}. Grassland ({len(grassland.animals)} animals)')
                         biome[num] = arboretum.grasslands[index]
                         num += 1
                 
                 for index, forest in enumerate(arboretum.forests):
-                    if forest.max_animals > len(arboretum.forests):
+                    if forest.max_animals > len(forest.animals):
                         print(f'{num}. Forest ({len(forest.animals)} animals)')
                         biome[num] = arboretum.forests[index]
                         num += 1
                 
                 for index, coastline in enumerate(arboretum.coastlines):
-                    if coastline.max_animals > len(arboretum.coastlines):
+                    if coastline.max_animals > len(coastline.animals):
                         print(f'{num}. Coastline ({len(coastline.animals)} animals)')
                         biome[num] = arboretum.coastlines[index]
                         num += 1
