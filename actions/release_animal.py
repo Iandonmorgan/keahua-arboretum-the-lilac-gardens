@@ -44,40 +44,42 @@ def release_animal(arboretum):
     def menu_function():
         num = 1
         try:
-            for index, river in enumerate(arboretum.rivers):
-                print(f'{num}. River ({len(river.animals)} animals)')
-                biome[num] = arboretum.rivers[index]
-                num += 1
+            int(choice) == int
+            if int(choice) > 0 and int(choice) < 9:
+                for index, river in enumerate(arboretum.rivers):
+                    print(f'{num}. River ({len(river.animals)} animals)')
+                    biome[num] = arboretum.rivers[index]
+                    num += 1
 
-            for index, mountain in enumerate(arboretum.mountains):
-                print(f'{num}. Mountain ({len(mountain.animals)} animals)')
-                biome[num] = arboretum.mountains[index]
-                num += 1
+                for index, mountain in enumerate(arboretum.mountains):
+                    print(f'{num}. Mountain ({len(mountain.animals)} animals)')
+                    biome[num] = arboretum.mountains[index]
+                    num += 1
 
-            for index, swamp in enumerate(arboretum.swamps):
-                print(f'{num}. Swamp ({len(swamp.animals)} animals)')
-                biome[num] = arboretum.swamps[index]
-                num += 1
-            
-            for index, grassland in enumerate(arboretum.grasslands):
-                print(f'{num}. Grassland ({len(grassland.animals)} animals)')
-                biome[num] = arboretum.grasslands[index]
-                num += 1
-            
-            for index, forest in enumerate(arboretum.forests):
-                print(f'{num}. Forest ({len(forest.animals)} animals)')
-                biome[num] = arboretum.forests[index]
-                num += 1
-            
-            for index, coastline in enumerate(arboretum.coastlines):
-                print(f'{num}. Coastline ({len(coastline.animals)} animals)')
-                biome[num] = arboretum.coastlines[index]
-                num += 1
+                for index, swamp in enumerate(arboretum.swamps):
+                    print(f'{num}. Swamp ({len(swamp.animals)} animals)')
+                    biome[num] = arboretum.swamps[index]
+                    num += 1
+                
+                for index, grassland in enumerate(arboretum.grasslands):
+                    print(f'{num}. Grassland ({len(grassland.animals)} animals)')
+                    biome[num] = arboretum.grasslands[index]
+                    num += 1
+                
+                for index, forest in enumerate(arboretum.forests):
+                    print(f'{num}. Forest ({len(forest.animals)} animals)')
+                    biome[num] = arboretum.forests[index]
+                    num += 1
+                
+                for index, coastline in enumerate(arboretum.coastlines):
+                    print(f'{num}. Coastline ({len(coastline.animals)} animals)')
+                    biome[num] = arboretum.coastlines[index]
+                    num += 1
 
-            for index, volcano in enumerate(arboretum.volcano):
-                print(f'{num}. Throw it in the volcano.')
-                biome[num] = arboretum.volcano[index]
-                num += 1
+                for index, volcano in enumerate(arboretum.volcano):
+                    print(f'{num}. Throw it in the volcano.')
+                    biome[num] = arboretum.volcano[index]
+                    num += 1
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 input("Please enter a valid option next time. Press enter to return to the main menu...")
@@ -90,10 +92,10 @@ def release_animal(arboretum):
         except ValueError:
             os.system('cls' if os.name == 'nt' else 'clear')
             input("Please enter a valid option next time. Press enter to return to the main menu...")
-        menu_function()
-        print()
-        print("Where would you like to place the animal?")
-        choice = input("> ")
+    menu_function()
+    print()
+    print("Where would you like to place the animal?")
+    choice = input("> ")
 
             
     
