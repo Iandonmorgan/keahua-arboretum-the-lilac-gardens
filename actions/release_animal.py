@@ -2,6 +2,7 @@ import os
 from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikapu, Pueo, Ulae, Opeapea, HappyFaceSpider
 
 def release_animal(arboretum):
+    valid_option = True
     os.system('cls' if os.name == 'nt' else 'clear')
     animal = None
     print("1. Gold Dust Day Gecko")
@@ -15,33 +16,45 @@ def release_animal(arboretum):
     print()
     print("Choose animal.")
     choice = input("> ")
+    try:
+        if int(choice) > 0 and int(choice) < 9:
+            if choice == "1":
+                animal = GoldDustDayGecko()
 
-    if int(choice) > 0 and int(choice) < 9:
-        if choice == "1":
-            animal = GoldDustDayGecko()
+            if choice == "2":
+                animal = RiverDolphin()
 
-        if choice == "2":
-            animal = RiverDolphin()
+            if choice == "3":
+                animal = NeneGoose()
+            
+            if choice == "4":
+                animal = Kikapu()
+            
+            if choice == "5":
+                animal = Pueo()
 
-        if choice == "3":
-            animal = NeneGoose()
-        
-        if choice == "4":
-            animal = Kikapu()
-        
-        if choice == "5":
-            animal = Pueo()
+            if choice == "6":
+                animal = Ulae()
 
-        if choice == "6":
-            animal = Ulae()
+            if choice == "7":
+                animal = Opeapea()
 
-        if choice == "7":
-            animal = Opeapea()
-
-        if choice == "8":
-            animal = HappyFaceSpider()
-    else:
-        pass
+            if choice == "8":
+                animal = HappyFaceSpider()
+        else:
+            pass
+    except KeyError:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        valid_option = False
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
+    except AttributeError:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        valid_option = False
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
+    except ValueError:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        valid_option = False
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
 
     biome = dict()
     def menu_function():
@@ -99,10 +112,11 @@ def release_animal(arboretum):
         except ValueError:
             os.system('cls' if os.name == 'nt' else 'clear')
             input("Please enter a valid option next time. Press enter to return to the main menu...")
-    menu_function()
-    print()
-    print("Where would you like to place the animal?")
-    choice = input("> ")
+    if valid_option:
+        menu_function()
+        print()
+        print("Where would you like to place the animal?")
+        choice = input("> ")
 
     try:
         env = biome[int(choice)]
