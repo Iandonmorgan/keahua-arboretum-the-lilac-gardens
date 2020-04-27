@@ -223,4 +223,4 @@ Mountain [bdf33960]
 Press any key to continue...
 ```
 
-
+![Sketch Board](./sketchBoard.png)
