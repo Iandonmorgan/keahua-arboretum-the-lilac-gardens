@@ -12,4 +12,4 @@ class Volcano(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_animal(self, item):
         self.animals.append(item)
-        print("feeed the volcano")
+        print("feed the volcano")
