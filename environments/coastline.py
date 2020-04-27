@@ -15,6 +15,8 @@ class Coastline(IContainsAnimals, IContainsPlants, Identifiable):
         try:
             if animal.aquatic and animal.cell_type == "hypotonic":
                 self.animals.append(animal)
+            elif animal.species == "River Dolphin":
+                self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add non-aquatic, or freshwater animals to a coastline environment.")
 
