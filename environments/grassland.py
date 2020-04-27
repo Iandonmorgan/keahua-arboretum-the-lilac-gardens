@@ -14,23 +14,26 @@ class Grassland(IContainsAnimals, IContainsPlants, Identifiable):
       self.characteristics: "Little rainfall, No shade"
 
     def add_animal(self, animal):
-        try:
-            for sunlight in animal.hospitable_sunlight:
-                if sunlight == "Full":
-                    for rainfall in animal.hospitable_rainfall:
-                        if rainfall == "Little":
-                            self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
+        if "Full" in animal.hospitable_sunlight and "Little" in animal.hospitable_rainfall:
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to Grassland environment.')
+            input("Press any key to return to main menu...")
+        else:
+            print()
+            print(f'Grassland environment is not hospitable for {animal.species}.')
+            input("Press any key to return to main menu...")
 
     def add_plant(self, plant):
-        try:
-            for location in plant.hospitable_locations:
-                if location == "Grassland":
-                    if self.max_plants > len(self.plants):
-                        self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants not hospitable for this environment.")
+        if "Grassland" not in plant.hospitable_locations:
+            print()
+            print(f'Grassland environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to Grassland environment.')
+            input("Press any key to return to main menu...")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

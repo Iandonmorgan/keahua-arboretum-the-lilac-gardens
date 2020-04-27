@@ -88,13 +88,13 @@ def release_animal(arboretum):
         
     except KeyError:
         os.system('cls' if os.name == 'nt' else 'clear')
-        input("Not gonna happen. Press any key to continue...")
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
     except AttributeError:
         os.system('cls' if os.name == 'nt' else 'clear')
-        input("Not gonna happen. Press any key to continue...")
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
     except ValueError:
         os.system('cls' if os.name == 'nt' else 'clear')
-        input("Not gonna happen. Press any key to continue...")
+        input("Please enter a valid option next time. Press enter to return to the main menu...")
   
     try:
         env = biome[int(choice)]
@@ -146,15 +146,15 @@ def release_animal(arboretum):
                     choice_fn(env)
             except ValueError:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                input("Not gonna happen. Press any key to continue...")
+                input("The environment is not suitable for that animal. Press any key to continue...")
                 pass
             except KeyError:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                input("Not gonna happen. Press any key to continue...")
+                input("The environment is not suitable for that animal. Press any key to continue...")
                 pass
             except AttributeError:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                input("Not gonna happen. Press any key to continue...")
+                input("The environment is not suitable for that animal. Press any key to continue...")
                 pass
         
         choice_fn(env)

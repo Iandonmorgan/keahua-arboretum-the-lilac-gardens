@@ -113,23 +113,27 @@ def cultivate_plant(arboretum):
                     env = biome[int(choice)]
                     choice_fn(env)
             except ValueError:
-                print()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 error_message = input("ValueError. Returning to main menu.")
             except KeyError:
-                print()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 error_message = input("Nope. Pick a number, stupid")
             except AttributeError:
-                print()
+                os.system('cls' if os.name == 'nt' else 'clear')
                 error_message = input("Nope. Pick a number, stupid")
+                pass
         
         choice_fn(env)
     except ValueError:
-        pass
+        os.system('cls' if os.name == 'nt' else 'clear')
+        input("VALUE ERROR")
     except KeyError:
-        print()
+        os.system('cls' if os.name == 'nt' else 'clear')
         error_message = input("KeyError. Returning to main menu.")
     except AttributeError:
-        pass
+        os.system('cls' if os.name == 'nt' else 'clear')
+        input("ATTRIBUTE ERROR")
     except UnboundLocalError:
-        pass
+        os.system('cls' if os.name == 'nt' else 'clear')
+        input("UNBOUND ERROR")
     
