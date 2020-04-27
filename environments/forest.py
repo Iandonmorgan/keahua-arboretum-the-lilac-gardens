@@ -13,23 +13,27 @@ class Forest(IContainsAnimals, IContainsPlants, Identifiable):
       self.characteristics: "Rainy, Shady"
 
     def add_animal(self, animal):
-        try:
-            for sunlight in animal.hospitable_sunlight:
-                if sunlight == "Shady":
-                    for rainfall in animal.hospitable_rainfall:
-                        if rainfall == "Rainy":
-                            self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
+        if "Shady" in animal.hospitable_sunlight and "Rainy" in animal.hospitable_rainfall:
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to Forest environment.')
+            input("Press any key to return to main menu...")
+        else:
+            print()
+            print(f'Forest environment is not hospitable for {animal.species}.')
+            input("Press any key to return to main menu...")
+
 
     def add_plant(self, plant):
-        try:
-            for location in plant.hospitable_locations:
-                if location == "Forest":
-                    if self.max_plants > len(self.plants):
-                        self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants not hospitable for this environment.")
+        if "Forest" not in plant.hospitable_locations:
+            print()
+            print(f'Forest environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to Forest environment.')
+            input("Press any key to return to main menu...")
 
 
     def __str__(self):

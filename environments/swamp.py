@@ -11,22 +11,27 @@ class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
       self.max_plants = 12
       self.characteristics = "Stagnant fresh water"
 
-    def add_animal(self, item):
-        try:
-            if self.max_animals > len(self.animals) and isinstance(item, IStagnant):
-                self.animals.append(item)
-        except AttributeError:
-            raise AttributeError(
-                "Cannot add non-stagnant animals to a swamp")
+    def add_animal(self, animal):
+            if isinstance(animal, IStagnant):
+                self.animals.append(animal)
+                print()
+                print(f'Swamp environment is not hospitable for {animal.species}.')
+                input("Press any key to return to main menu...")
+            else:
+                print()
+                print(f'Swamp environment is not hospitable for {animal.species}.')
+                input("Press any key to return to main menu...")
 
     def add_plant(self, plant):
-        try:
-            for location in plant.hospitable_locations:
-                if location == "Swamp":
-                    if self.max_plants > len(self.plants):
-                        self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants not hospitable for this environment.")
+        if "Swamp" not in plant.hospitable_locations:
+            print()
+            print(f'Swamp environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to Swamp environment.')
+            input("Press any key to return to main menu...")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

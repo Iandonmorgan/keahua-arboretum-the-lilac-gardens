@@ -11,28 +11,26 @@ class Mountain(IContainsAnimals, IContainsPlants, Identifiable):
       self.characteristics: "High Elevation"
 
     def add_animal(self, animal):
-        try:
-            for altitude in animal.hospitable_altitude:
-                if altitude == "High Elevation":
-                    self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
-        # try:
-        #     for location in animal.hospitable_locations:
-        #         if location == self:
-        #             if self.max_animals > len(self.animals):
-        #                 self.animals.append(animal)
-        # except AttributeError:
-        #     raise AttributeError("Cannot add your animal to this non-hospitable environment.")
-
+        if "High Elevation" not in animal.hospitable_altitude:
+            print()
+            print(f'Mountain environment is not hospitable for {animal.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to Mountain environment.')
+            input("Press any key to return to main menu...")
+        
     def add_plant(self, plant):
-        try:
-            for location in plant.hospitable_locations:
-                if location == "Mountain":
-                    if self.max_plants > len(self.plants):
-                        self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants not hospitable for this environment.")
+        if "Mountain" not in plant.hospitable_locations:
+            print()
+            print(f'Mountain environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to Mountain environment.')
+            input("Press any key to return to main menu...")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'
