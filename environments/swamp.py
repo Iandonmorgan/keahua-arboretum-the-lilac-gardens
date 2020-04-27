@@ -15,7 +15,7 @@ class Swamp(IContainsAnimals, IContainsPlants, Identifiable):
             if isinstance(animal, IStagnant):
                 self.animals.append(animal)
                 print()
-                print(f'Swamp environment is not hospitable for {animal.species}.')
+                print(f'{animal.species} added to Swamp environment.')
                 input("Press any key to return to main menu...")
             else:
                 print()

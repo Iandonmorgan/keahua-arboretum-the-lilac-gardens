@@ -53,6 +53,10 @@ def cultivate_plant(arboretum):
                 biome[num] = arboretum.forests[index]
                 num += 1
             
+            for index, volcano in enumerate(arboretum.volcano):
+                    print(f'{num}. Throw it in the volcano.')
+                    biome[num] = arboretum.volcano[index]
+                    num += 1
             
             print()
             print("Where would you like to place the plant?")
@@ -105,7 +109,11 @@ def cultivate_plant(arboretum):
                         print(f'{num}. Forest ({len(forest.plants)} plants)')
                         biome[num] = arboretum.forests[index]
                         num += 1
-                    
+
+                    for index, volcano in enumerate(arboretum.volcano):
+                        print(f'{num}. Throw it in the volcano.')
+                        biome[num] = arboretum.volcano[index]
+                        num += 1
                     
                     print()
                     print(f'Where would you like to release the {plant.species}?')

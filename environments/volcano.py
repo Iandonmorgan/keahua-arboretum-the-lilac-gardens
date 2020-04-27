@@ -31,3 +31,24 @@ class Volcano(IContainsAnimals, IContainsPlants, Identifiable):
         {item.species} sacrificed to Goddess Pele.
         """)
         input("Press any key to return to main menu...")
+
+    def add_plant(self, item):
+        self.animals.append(item)
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"""
+                                              ooO
+                             ooOOOo
+                           oOOOOOOoooo
+                         ooOOOooo  oooo
+                        /vvv\\
+                       /V V V\ 
+                      /V  V  V\          
+                     /         \          I HOPE GODDESS PELE IS VEGAN!
+                    /           \               /
+                  /               \   	  o          o
+        __       /                 \     /-   o     /-
+        /\     /                     \  /\  -/-    /\\
+                                            /\\
+        {item.species} sacrificed to Goddess Pele.
+        """)
+        input("Press any key to return to main menu...")
