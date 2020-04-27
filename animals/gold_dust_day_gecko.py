@@ -4,7 +4,7 @@ from interfaces import IWalking, ITerrestrial, IEnviroChar
 class GoldDustDayGecko(Animal, IWalking, ITerrestrial, IEnviroChar):
 
     def __init__(self):
-        Animal.__init__(self, "River Gecko")
+        Animal.__init__(self, "Gold Dust Day Gecko")
         IWalking.__init__(self)
         ITerrestrial.__init__(self)
         IEnviroChar.__init__(self)
