@@ -12,46 +12,64 @@ def cultivate_plant(arboretum):
     print("Choose plant to cultivate.")
     choice = input("> ")
 
-    if choice == "1":
-        plant = MountainAppleTree()
+    valid_input = False
+    try:
+        int(choice) == int
+        if int(choice) > 0 and int(choice) < 5:
+            if choice == "1":
+                plant = MountainAppleTree()
 
-    if choice == "2":
-        plant = Silversword()
+            if choice == "2":
+                plant = Silversword()
 
-    if choice == "3":
-        plant = RainbowEucalyptusTree()
+            if choice == "3":
+                plant = RainbowEucalyptusTree()
+            
+            if choice == "4":
+                plant = BlueJadeVine()
+        else:
+            pass
+
+        biome = dict()
+        num = 1
+
+        for index, mountain in enumerate(arboretum.mountains):
+            print(f'{num}. Mountain ({len(mountain.plants)} plants)')
+            biome[num] = arboretum.mountains[index]
+            num += 1
+
+        for index, swamp in enumerate(arboretum.swamps):
+            print(f'{num}. Swamp ({len(swamp.plants)} plants)')
+            biome[num] = arboretum.swamps[index]
+            num += 1
+        
+        for index, grassland in enumerate(arboretum.grasslands):
+            print(f'{num}. Grassland ({len(grassland.plants)} plants)')
+            biome[num] = arboretum.grasslands[index]
+            num += 1
+        
+        for index, forest in enumerate(arboretum.forests):
+            print(f'{num}. Forest ({len(forest.plants)} plants)')
+            biome[num] = arboretum.forests[index]
+            num += 1
+        
+        
+        print()
+        print("Where would you like to place the plant?")
+        choice = input("> ")
+    except ValueError:
+        print()
+        error_message = input("Nope. Pick a number, stupid")
+    except KeyError:
+        print()
+        error_message = input("Nope. Pick a number, stupid")
+    except AttributeError:
+        print()
+        error_message = input("Nope. Pick a number, stupid")
+    except UnboundLocalError:
+        error_message = input("Nope. Pick a number, stupid")
+
     
-    if choice == "4":
-        plant = BlueJadeVine()
-
-    biome = dict()
-
-    num = 1
-
-    for index, mountain in enumerate(arboretum.mountains):
-        print(f'{num}. Mountain ({len(mountain.plants)} plants)')
-        biome[num] = arboretum.mountains[index]
-        num += 1
-
-    for index, swamp in enumerate(arboretum.swamps):
-        print(f'{num}. Swamp ({len(swamp.plants)} plants)')
-        biome[num] = arboretum.swamps[index]
-        num += 1
-    
-    for index, grassland in enumerate(arboretum.grasslands):
-        print(f'{num}. Grassland ({len(grassland.plants)} plants)')
-        biome[num] = arboretum.grasslands[index]
-        num += 1
-    
-    for index, forest in enumerate(arboretum.forests):
-        print(f'{num}. Forest ({len(forest.plants)} plants)')
-        biome[num] = arboretum.forests[index]
-        num += 1
-    
-    
-    print()
-    print("Where would you like to place the plant?")
-    choice = input("> ")
 
     try:
         env = biome[int(choice)]
@@ -96,16 +114,19 @@ def cultivate_plant(arboretum):
                 print()
                 error_message = input("Nope. Pick a number, stupid")
             except KeyError:
-                pass
+                print()
+                error_message = input("Nope. Pick a number, stupid")
             except AttributeError:
-                pass
+                print()
+                error_message = input("Nope. Pick a number, stupid")
         
         choice_fn(env)
     except ValueError:
-        print()
-        error_message = input("Nope. Pick a number, stupid")
+        pass
     except KeyError:
         pass
     except AttributeError:
+        pass
+    except UnboundLocalError:
         pass
     

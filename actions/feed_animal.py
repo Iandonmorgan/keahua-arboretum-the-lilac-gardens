@@ -16,31 +16,42 @@ def feed_animal_menu(arboretum):
     print()
     print("Choose an animal to feed.")
     choice = input("> ")
-
-    if choice == "1":
-        animal = GoldDustDayGecko()
-        feed_animal(animal)
-    if choice == "2":
-        animal = RiverDolphin()
-        feed_animal(animal)
-    if choice == "3":
-        animal = NeneGoose()
-        feed_animal(animal)
-    if choice == "4":
-        animal = Kikapu()
-        feed_animal(animal)
-    if choice == "5":
-        animal = Pueo()
-        feed_animal(animal)
-    if choice == "6":
-        animal = Ulae()
-        feed_animal(animal)
-    if choice == "7":
-        animal = Opeapea()
-        feed_animal(animal)
-    if choice == "8":
-        animal = HappyFaceSpider()
-        feed_animal(animal)
+    try:
+        int(choice) == int
+        if int(choice) > 0 and int(choice) < 9:
+            if choice == "1":
+                animal = GoldDustDayGecko()
+                feed_animal(animal)
+            if choice == "2":
+                animal = RiverDolphin()
+                feed_animal(animal)
+            if choice == "3":
+                animal = NeneGoose()
+                feed_animal(animal)
+            if choice == "4":
+                animal = Kikapu()
+                feed_animal(animal)
+            if choice == "5":
+                animal = Pueo()
+                feed_animal(animal)
+            if choice == "6":
+                animal = Ulae()
+                feed_animal(animal)
+            if choice == "7":
+                animal = Opeapea()
+                feed_animal(animal)
+            if choice == "8":
+                animal = HappyFaceSpider()
+                feed_animal(animal)
+        else:
+            input("Please select a valid entry, the animals are hungry. Press any key to return to the main menu... ")
+    except ValueError:
+        print()
+        error_message = input("Animals can't eat letters. Press any key to return to the main menu... ")
+    except IndexError:
+        print()
+        error_message = input("Please select a valid entry, the animals are hungry. Press any key to return to the main menu... ")
+    
 
 def feed_animal(animal):
     try:
