@@ -4,4 +4,4 @@ class BlueJadeVine(Plant):
 
     def __init__(self):
         Plant.__init__(self, "Blue Jade Vine", "Partial", 0, "Medium" )
-        self.hospitable_locations = ["Forest", "Swamp"]
+        self.hospitable_locations = ["Grassland", "Swamp"]
