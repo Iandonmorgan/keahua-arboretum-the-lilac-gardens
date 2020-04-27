@@ -12,23 +12,25 @@ def annex_habitat(arboretum):
     print("")
     print("Choose what you want to annex.")
     choice = input("> ")
-
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
     if choice == "1":
         mountain = Mountain()
         arboretum.mountains.append(mountain)
-    if choice == "2":
+    elif choice == "2":
         swamp = Swamp()
         arboretum.swamps.append(swamp)
-    if choice == "3":
+    elif choice == "3":
         grassland = Grassland()
         arboretum.grasslands.append(grassland)
-    if choice == "4":
+    elif choice == "4":
         forest = Forest()
         arboretum.forests.append(forest)
-    if choice == "5":
+    elif choice == "5":
         river = River()
         arboretum.rivers.append(river)
-    if choice == "6":
+    elif choice == "6":
         coastline = Coastline()
         arboretum.coastlines.append(coastline)
-
+    else:
+        input("That's not a valid option. Press any key to return to the main menu...")

@@ -12,22 +12,26 @@ class River(IContainsAnimals, IContainsPlants, Identifiable):
         self.characteristics = "Fresh water"
 
     def add_animal(self, animal):
-        try:
-            if animal.aquatic and animal.cell_type == "hypertonic":
-                if self.max_animals > len(self.animals):
-                    self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError(
-                "Cannot add non-aquatic, or saltwater animals to a river")
+        if animal.aquatic and animal.cell_type == "hypertonic":
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to River environment.')
+            input("Press any key to return to main menu...")
+        else:
+            print()
+            print(f'River environment is not hospitable for {animal.species}.')
+            input("Press any key to return to main menu...") 
 
     def add_plant(self, plant):
-        try:
-            if plant.freshwater and plant.requires_current:
-                if self.max_plants > len(self.plants):
-                    self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError(
-                "Cannot add plants that require brackish water or stagnant water to a river biome")
+        if "River" not in plant.hospitable_locations:
+            print()
+            print(f'River environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to River environment.')
+            input("Press any key to return to main menu...")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'

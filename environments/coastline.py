@@ -12,20 +12,31 @@ class Coastline(IContainsAnimals, IContainsPlants, Identifiable):
       self.characteristics = "Saltwater"
 
     def add_animal(self, animal):
-        try:
-            if animal.aquatic and animal.cell_type == "hypotonic":
-                self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError("Cannot add non-aquatic, or freshwater animals to a coastline environment.")
+        if animal.aquatic and animal.cell_type == "hypotonic":
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to Coastline environment.')
+            input("Press any key to return to main menu...")
+        elif animal.species == "River Dolphin":
+            self.animals.append(animal)
+            print()
+            print(f'{animal.species} added to Coastline environment.')
+            input("Press any key to return to main menu...")
+        else:
+            print()
+            print(f'Coastline environment is not hospitable for {animal.species}.')
+            input("Press any key to return to main menu...")
 
     def add_plant(self, plant):
-        try:
-            for location in plant.hospitable_locations:
-                if location == self:
-                    if self.max_plants > len(self.plants):
-                        self.plants.append(plant)
-        except AttributeError:
-            raise AttributeError("Cannot add plants not hospitable for this environment.")
+        if "Coastline" not in plant.hospitable_locations:
+            print()
+            print(f'Coastline environment is not hospitable for {plant.species}.')
+            input("Press any key to return to main menu...")
+        else:
+            self.plants.append(plant)
+            print()
+            print(f'{plant.species} added to Coastline environment.')
+            input("Press any key to return to main menu...")
 
     def animal_count(self):
         return f'This place has {len(self.animals)} animals in it'
