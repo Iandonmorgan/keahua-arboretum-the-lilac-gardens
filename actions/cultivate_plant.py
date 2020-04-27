@@ -29,34 +29,36 @@ def cultivate_plant(arboretum):
                 plant = BlueJadeVine()
         else:
             pass
+        if int(choice) > 0 and int(choice) < 5:
+            biome = dict()
+            num = 1
 
-        biome = dict()
-        num = 1
+            for index, mountain in enumerate(arboretum.mountains):
+                print(f'{num}. Mountain ({len(mountain.plants)} plants)')
+                biome[num] = arboretum.mountains[index]
+                num += 1
 
-        for index, mountain in enumerate(arboretum.mountains):
-            print(f'{num}. Mountain ({len(mountain.plants)} plants)')
-            biome[num] = arboretum.mountains[index]
-            num += 1
-
-        for index, swamp in enumerate(arboretum.swamps):
-            print(f'{num}. Swamp ({len(swamp.plants)} plants)')
-            biome[num] = arboretum.swamps[index]
-            num += 1
-        
-        for index, grassland in enumerate(arboretum.grasslands):
-            print(f'{num}. Grassland ({len(grassland.plants)} plants)')
-            biome[num] = arboretum.grasslands[index]
-            num += 1
-        
-        for index, forest in enumerate(arboretum.forests):
-            print(f'{num}. Forest ({len(forest.plants)} plants)')
-            biome[num] = arboretum.forests[index]
-            num += 1
-        
-        
-        print()
-        print("Where would you like to place the plant?")
-        choice = input("> ")
+            for index, swamp in enumerate(arboretum.swamps):
+                print(f'{num}. Swamp ({len(swamp.plants)} plants)')
+                biome[num] = arboretum.swamps[index]
+                num += 1
+            
+            for index, grassland in enumerate(arboretum.grasslands):
+                print(f'{num}. Grassland ({len(grassland.plants)} plants)')
+                biome[num] = arboretum.grasslands[index]
+                num += 1
+            
+            for index, forest in enumerate(arboretum.forests):
+                print(f'{num}. Forest ({len(forest.plants)} plants)')
+                biome[num] = arboretum.forests[index]
+                num += 1
+            
+            
+            print()
+            print("Where would you like to place the plant?")
+            choice = input("> ")
+        else:
+            input("Invalid entry. Press enter to return to the main menu...")
     except ValueError:
         print()
         error_message = input("Nope. Pick a number, stupid")
