@@ -1,6 +1,4 @@
-from interfaces import Identifiable
-from interfaces import IContainsAnimals
-from interfaces import IContainsPlants
+from interfaces import Identifiable, IContainsAnimals, IContainsPlants
 
 class Mountain(IContainsAnimals, IContainsPlants, Identifiable):
 
@@ -19,13 +17,13 @@ class Mountain(IContainsAnimals, IContainsPlants, Identifiable):
                     self.animals.append(animal)
         except AttributeError:
             raise AttributeError("Cannot add your animal to this non-hospitable environment.")
-        try:
-            for location in animal.hospitable_locations:
-                if location == self:
-                    if self.max_animals > len(self.animals):
-                        self.animals.append(animal)
-        except AttributeError:
-            raise AttributeError("Cannot add your animal to this non-hospitable environment.")
+        # try:
+        #     for location in animal.hospitable_locations:
+        #         if location == self:
+        #             if self.max_animals > len(self.animals):
+        #                 self.animals.append(animal)
+        # except AttributeError:
+        #     raise AttributeError("Cannot add your animal to this non-hospitable environment.")
 
     def add_plant(self, plant):
         try:
