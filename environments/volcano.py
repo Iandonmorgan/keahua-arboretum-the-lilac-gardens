@@ -1,3 +1,4 @@
+import os
 from interfaces import Identifiable, IContainsAnimals, IContainsPlants
 
 
@@ -12,4 +13,21 @@ class Volcano(IContainsAnimals, IContainsPlants, Identifiable):
 
     def add_animal(self, item):
         self.animals.append(item)
-        print("feed the volcano")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"""
+                                              ooO
+                             ooOOOo
+                           oOOOOOOoooo
+                         ooOOOooo  oooo
+                        /vvv\\
+                       /V V V\ 
+                      /V  V  V\          
+                     /         \          GODDESS PELE IS PLEASED!
+                    /           \               /
+                  /               \   	  o          o
+        __       /                 \     /-   o     /-
+        /\     /                     \  /\  -/-    /\\
+                                            /\\
+        {item.species} sacrificed to Goddess Pele.
+        """)
+        input("Press any key to return to main menu...")
