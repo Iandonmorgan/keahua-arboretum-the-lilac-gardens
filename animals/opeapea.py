@@ -4,7 +4,7 @@ from interfaces import IFlying, ITerrestrial, IEnviroChar
 class Opeapea(Animal, IFlying, ITerrestrial, IEnviroChar):
 
     def __init__(self):
-        Animal.__init__(self, "Opeapea")
+        Animal.__init__(self, "Ope'ape'a")
         IFlying.__init__(self)
         ITerrestrial.__init__(self)
         IEnviroChar.__init__(self)
@@ -26,4 +26,4 @@ class Opeapea(Animal, IFlying, ITerrestrial, IEnviroChar):
             print(f'The Opeapea rejects the {prey}')
 
     def __str__(self):
-        return f'Nene Opeapea ({str(self.id).split("-")[0]}). is Opapeaing around!'
+        return f'Ope\'ape\'a ({str(self.id).split("-")[0]}). is Ope\'ape\'aing around!'

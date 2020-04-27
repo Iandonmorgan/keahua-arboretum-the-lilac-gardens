@@ -28,7 +28,7 @@ def release_animal(arboretum):
                 animal = NeneGoose()
             
             if choice == "4":
-                animal = Kikapu()
+                animal = Kikakapu()
             
             if choice == "5":
                 animal = Pueo()

@@ -16,10 +16,10 @@ class Kikakapu(Animal, ISwimming, ISaltwater):
 
     def feed(self, prey):
         if prey in self.__prey:
-            print(f'The Kikapu ate {prey} for a meal')
+            print(f'The Kīkākapu ate {prey} for a meal')
         else:
-            print(f'The Kikapu rejects the {prey}')
+            print(f'The Kīkākapu rejects the {prey}')
 
 
     def __str__(self):
-        return f'Kikapu ({str(self.id).split("-")[0]}). is Kikapuing around!'
+        return f'Kīkākapu ({str(self.id).split("-")[0]}). is Kīkākapuing around!'

@@ -29,7 +29,7 @@ def feed_animal_menu(arboretum):
                 animal = NeneGoose()
                 feed_animal(animal)
             if choice == "4":
-                animal = Kikapu()
+                animal = Kikakapu()
                 feed_animal(animal)
             if choice == "5":
                 animal = Pueo()
