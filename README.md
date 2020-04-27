@@ -1,25 +1,11 @@
 ![Keahua Landscape](./keahua.jpeg)
 
-# Before You Start
+# Getting Started
 
-You are inheriting a code base. You cannot start from scratch and build your own, because you will almost never get that opportunity on the job. You must read the current code with your teammates and try to understand what it is doing. Then you must refactor it - even if it means deleting some of the code that currently exists - to build the rest of the features.
-
-The goal of this group project, likely more than any other one, is to *learn*. Focusing on productivity is something you will need to worry about on the job. Have fun with this code, make lots of mistakes, refactor them, and learn about what you can do with Python.
-
-This will be a large challenge. How will you respond to it? Attack it with excitement, or withdraw from it in defeat? Time to see how far you have come with working on your Growth Mindset.
-
-1. Everyone clone the repository
+1. Clone the repository
 1. `cd` to the project directory
 1. Run the command `pip install -r requirements.txt`
-1. Run the command `python index.py` to start your application _(do not use AREPL for this project)_
-
-## Guidelines
-
-* You will not learn anything in this group project if you don't communicate well with each other.
-* You will not get anything done if you don't communicate well with each other.
-* Collaboration is key in this project. Working solo will get you nowhere.
-* Showing up late, extended lunches, going home early and leaving your team stranded will get you pulled off the team.
-* Create [pull request and issue ticket templates](https://help.github.com/en/articles/about-issue-and-pull-request-templates) for your team.
+1. Run the command `python index.py` to start the application 
 
 # Keahua Arboretum
 
@@ -59,7 +45,7 @@ This is a list of animals that you and your teammates are in charge of raising, 
 
 Fancy web applications are so 2018. Command line applications provide a much more hands-on, personal, bespoke, artisinal experience when managing an arboretum like Keahua. Therefore, even though you are casting off your digital personas to lead a life connected with the land, you still want to use your hard-earned skills as developers to make management of the land as efficient as possible.
 
-Here are the main features that the application must be able to perform.
+Here are the main features of the application
 
 ### Main Menu
 
@@ -237,41 +223,4 @@ Mountain [bdf33960]
 Press any key to continue...
 ```
 
-## Stretch Goals
 
-1. Display groups of things in each biome when you display the lists above.
-    ```html
-    1. Grassland (1 Silversword, 4 Blue Jade Vine, 4 Nene Goose)
-    ```
-2. Only show biomes that are able to store the number of animals/plants. For example, the user chooses to release a river dolphin and one of the river biomes is already at capacity.
-    ```sh
-    1. Mountain (5 plants)
-    2. River (12 animals)  <-- not a valid choice
-    3. Grassland (0 plants)
-    ```
-
-     Instead of showing all possible options, only show valid options.
-
-    ```sh
-    1. Mountain (5 plants)
-    2. Grassland (0 plants)
-    ```
-
-
-## Arboretum Class
-
-A helpful hint to get you started. You need a **`Arboretum`** class. This class will contain lists for each kind of biomes that you want to assign animals or plants to.
-
-```py
-class Arboretum:
-
-    def __init__(self):
-        self.__rivers = []
-
-    @property
-    def rivers(self):
-        return self.__rivers
-
-    def annex_river(self, river):
-        self.__rivers.append(river)
-```
