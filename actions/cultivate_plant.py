@@ -94,18 +94,22 @@ def cultivate_plant(arboretum):
                     choice_fn(env)
             except ValueError:
                 print()
-                error_message = input("Nope. Pick a number, stupid")
+                error_message = input("ValueError. Returning to main menu.")
             except KeyError:
-                pass
+                print()
+                error_message = input("KeyError. Returning to main menu.")
             except AttributeError:
-                pass
+                print()
+                error_message = input("AttributeError. Returning to main menu.")
         
         choice_fn(env)
     except ValueError:
         print()
-        error_message = input("Nope. Pick a number, stupid")
+        error_message = input("ValueError. Returning to main menu.")
     except KeyError:
-        pass
+        print()
+        error_message = input("KeyError. Returning to main menu.")
     except AttributeError:
-        pass
+        print()
+        error_message = input("AttributeError. Returning to main menu.")
     
