@@ -1,5 +1,5 @@
 import os
-from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikapu, Pueo, Ulae, Opeapea, HappyFaceSpider
+from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikakapu, Pueo, Ulae, Opeapea, HappyFaceSpider
 
 def release_animal(arboretum):
     valid_option = True
@@ -28,7 +28,7 @@ def release_animal(arboretum):
                 animal = NeneGoose()
             
             if choice == "4":
-                animal = Kikapu()
+                animal = Kikakapu()
             
             if choice == "5":
                 animal = Pueo()

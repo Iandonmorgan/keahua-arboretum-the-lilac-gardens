@@ -1,5 +1,5 @@
 import os
-from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikapu, Pueo, Ulae, Opeapea, HappyFaceSpider
+from animals import RiverDolphin, GoldDustDayGecko, NeneGoose, Kikakapu, Pueo, Ulae, Opeapea, HappyFaceSpider
 
 def feed_animal_menu(arboretum):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -29,7 +29,7 @@ def feed_animal_menu(arboretum):
                 animal = NeneGoose()
                 feed_animal(animal)
             if choice == "4":
-                animal = Kikapu()
+                animal = Kikakapu()
                 feed_animal(animal)
             if choice == "5":
                 animal = Pueo()
